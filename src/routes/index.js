@@ -1,8 +1,10 @@
 const { Router } = require("express");
-// import all routers;
-
 const router = Router();
 
+// import all routers;
+const usersRoutes = require("./users");
+// ============================================
+router.use("/users", usersRoutes);
 // load each router on a route
 // i.e: router.use('/auth', authRouter);
 //router.use('/', );
