@@ -14,6 +14,6 @@ process.env.NODE_ENV = process.env.NODE_ENV || "dev";
 let uriDB =
   process.env.NODE_ENV === "dev"
     ? "mongodb://localhost:27017/cafe"
-    : "mongodb://cafe-user:M123456@ds155411.mlab.com:55411/cafe";
+    : process.env.MONGO_URI; // heroku environment variable
 
 process.env.URI_DB = uriDB;
