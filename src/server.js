@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use("/", routes);
 // connects to mongo
 mongoose.connect(
-  process.env.DB_URI,
+  "mongodb://cafe-user:M123456@ds155411.mlab.com:55411/cafe",
   { useNewUrlParser: true },
   (err, res) => {
     if (err) throw err;
