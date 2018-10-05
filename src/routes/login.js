@@ -33,8 +33,8 @@ router.post("/", (req, res) => {
       });
     }
     let data = foundUser;
-    let token = jwt.sign({ user: foundUser }, "develop", {
-      expiresIn: 60 * 60 * 24 * 30
+    let token = jwt.sign({ user: foundUser }, process.env.TOKEN_SEED, {
+      expiresIn: process.env.TOKEN_TIME
     });
     res.status(200).json({
       error: false,

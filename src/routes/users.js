@@ -3,12 +3,13 @@ const bcrypt = require("bcrypt");
 const _ = require("underscore");
 const router = Router();
 const User = require("../models/user");
+const { tokenVerify, adminVerify } = require("../middlewares/authentication");
 
 router.get("/test", (req, res, next) => {
   res.status(200).json("Todo Bien...");
 });
 
-router.post("/new", (req, res) => {
+router.post("/new", [tokenVerify, adminVerify], (req, res) => {
   let body = req.body;
   let user = new User({
     name: body.name,
@@ -26,7 +27,7 @@ router.post("/new", (req, res) => {
   });
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", [tokenVerify, adminVerify], (req, res) => {
   let id = req.params.id;
   let body = _.pick(req.body, ["name", "email", "role", "img", "state"]);
   User.findByIdAndUpdate(
@@ -47,7 +48,7 @@ router.put("/:id", (req, res) => {
   );
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", [tokenVerify, adminVerify], (req, res) => {
   let id = req.params.id;
   User.findByIdAndUpdate(
     id,
@@ -67,7 +68,7 @@ router.delete("/:id", (req, res) => {
   );
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", tokenVerify, (req, res) => {
   let id = req.params.id;
   User.findById(id, (err, userFound) => {
     if (err) throw err;
@@ -75,7 +76,7 @@ router.get("/:id", (req, res) => {
   });
 });
 
-router.get("/", (req, res) => {
+router.get("/", tokenVerify, (req, res) => {
   let from = req.query.from || 0;
   let pag = req.query.pag || 5;
   User.find({ state: true }, "name email role img state")
