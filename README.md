@@ -4,7 +4,7 @@
 
 # do
 
-```npm install``
+```npm install```
 
 # an then
 ```npm start```
