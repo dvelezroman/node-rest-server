@@ -21,9 +21,3 @@ process.env.TOKEN_SEED = process.env.TOKEN_SEED || "develop";
 // =========================
 // URI CONECTIONS
 // =========================
-let uriDB =
-  process.env.NODE_ENV === "dev"
-    ? "mongodb://localhost:27017/cafe"
-    : process.env.MONGO_URI; // heroku environment variable
-
-process.env.URI_DB = uriDB;

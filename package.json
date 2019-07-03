@@ -1,27 +1,25 @@
 {
-  "name": "08-RESTserver",
-  "version": "1.0.0",
-  "engines": {
-    "node": "v8.10.0"
-  },
-  "description": "",
-  "main": "/src/server.js",
-  "scripts": {
-    "start": "cd src && node server.js",
-    "dev": "cd src && nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcrypt": "^3.0.1",
-    "body-parser": "^1.18.3",
-    "express": "^4.16.3",
-    "jsonwebtoken": "^8.3.0",
-    "mongoose": "^5.3.1",
-    "mongoose-unique-validator": "^2.0.2",
-    "nodemon": "^1.18.4",
-    "underscore": "^1.9.1"
-  }
+	"name": "agile-bank",
+	"version": "1.0.0",
+	"engines": {
+		"node": "v8.10.0"
+	},
+	"description": "Agile Bank Testing",
+	"main": "/src/server.js",
+	"scripts": {
+		"start": "cd src && node server.js",
+		"dev": "cd src && nodemon server.js"
+	},
+	"keywords": [],
+	"author": "Dario Vélez Román",
+	"license": "ISC",
+	"dependencies": {
+		"bcrypt": "^3.0.6",
+		"body-parser": "^1.19.0",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1",
+		"lodash": "^4.17.11",
+		"nodemon": "^1.19.1",
+		"underscore": "^1.9.1"
+	}
 }
